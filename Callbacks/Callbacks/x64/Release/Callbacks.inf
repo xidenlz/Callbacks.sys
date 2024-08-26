@@ -1,0 +1,89 @@
+;
+; Callbacks.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=Callbacks.cat
+DriverVer = 08/26/2024,9.56.8.611
+
+[DestinationDirs]
+DefaultDestDir = 12
+Callbacks_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Callbacks.sys  = 1,,
+;
+
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%Callbacks.DeviceDesc%=Callbacks_Device, Root\Callbacks ; TODO: edit hw-id
+
+[Callbacks_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+Callbacks.sys
+
+;-------------- Service installation
+[Callbacks_Device.NT.Services]
+AddService = Callbacks,%SPSVCINST_ASSOCSERVICE%, Callbacks_Service_Inst
+
+; -------------- Callbacks driver install sections
+[Callbacks_Service_Inst]
+DisplayName    = %Callbacks.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\Callbacks.sys
+
+;
+;--- Callbacks_Device Coinstaller installation ------
+;
+
+[Callbacks_Device.NT.CoInstallers]
+AddReg=Callbacks_Device_CoInstaller_AddReg
+CopyFiles=Callbacks_Device_CoInstaller_CopyFiles
+
+[Callbacks_Device_CoInstaller_AddReg]
+;
+
+
+[Callbacks_Device_CoInstaller_CopyFiles]
+;
+
+
+[Callbacks_Device.NT.Wdf]
+KmdfService =  Callbacks, Callbacks_wdfsect
+[Callbacks_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "Callbacks Installation Disk"
+Callbacks.DeviceDesc = "Callbacks Device"
+Callbacks.SVCDESC = "Callbacks Service"

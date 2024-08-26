@@ -1,0 +1,23 @@
+﻿  Building 'Callbacks' with toolset 'WindowsKernelModeDriver10.0' and the 'Universal' target platform.
+  Stamping x64\Release\Callbacks.inf
+  Stamping [Version] section with DriverVer=08/26/2024,9.56.8.611
+  Entry.c
+  Callbacks.vcxproj -> C:\Users\BzMus\source\repos\Callbacks\x64\Release\Callbacks.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\BzMus\source\repos\Callbacks\x64\Release\Callbacks.sys
+  
+  Driver is a Universal Driver.
+  ........................
+  Signability test complete.
+  
+  Errors:
+  None
+  
+  Warnings:
+  None
+  
+  Catalog generation complete.
+  C:\Users\BzMus\source\repos\Callbacks\x64\Release\Callbacks\callbacks.cat
+  Done Adding Additional Store
+  Successfully signed: C:\Users\BzMus\source\repos\Callbacks\x64\Release\Callbacks\callbacks.cat
+  
