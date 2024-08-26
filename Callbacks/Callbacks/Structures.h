@@ -37,7 +37,7 @@ For more information, please refer to <https://unlicense.org>
 #ifndef _WINNT_
 #define _WINNT_
 
-// Define custom structures only if they are not already defined
+
 #ifndef _IMAGE_DATA_DIRECTORY_DEFINED
 typedef struct _IMAGE_DATA_DIRECTORY
 {
