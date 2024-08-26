@@ -29,8 +29,8 @@ For more information, please refer to <https://unlicense.org>
 
 #pragma once
 #include <ntddk.h>
-#include "Debug.hpp"
-#include "Structures.hpp"
+#include "Debug.h"
+#include "Structures.h"
 
 
 UNICODE_STRING Images[] = {
