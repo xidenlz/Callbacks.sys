@@ -1,5 +1,5 @@
 #pragma once
-#include "Memory.hpp"
+#include "Memory.h"
 
 
 BOOLEAN ReportImg(PUNICODE_STRING ImgFullName)
